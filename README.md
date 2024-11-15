@@ -1,5 +1,6 @@
 # blindspot-multisensory  
 
+[![DOI](https://zenodo.org/badge/888130091.svg)](https://doi.org/10.5281/zenodo.14167119)  
 Data and code accompaning the paper "Filling in of the Blindspot is Multisensory." by Ailene Chan, N. R. B. Stiles, C. A. Levitan, A. R. Tanguay, and S.
 Shimojo.
 ---
