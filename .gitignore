@@ -33,3 +33,6 @@ octave-workspace
 # Figures
 *.png
 *.jpg
+
+# Virtual environment
+.venv/

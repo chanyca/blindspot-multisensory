@@ -28,9 +28,7 @@ end
 
 %% fixation - won't start trial till successful fixation
 
-if ~dummymode
-    Eyelink('Message', 'FIX_START');
-end
+if ~dummymode, Eyelink('Message', 'FIX_START'); end
 
 fail_count = 0;
 flag = false;
@@ -57,9 +55,7 @@ while ~flag
     end
 end
 
-if ~dummymode
-    Eyelink('Message', 'FIX_END');
-end
+if ~dummymode, Eyelink('Message', 'FIX_END'); end
 
 %% actual stim
 
@@ -71,9 +67,7 @@ if makeMovie
     Screen('AddFrameToMovie', window)
 end
 
-if ~dummymode
-    Eyelink('Message', 'STIM_START');
-end
+if ~dummymode, Eyelink('Message', 'STIM_START'); end
 
 t0 = StimOnsetTimePre + env.ifi;
 

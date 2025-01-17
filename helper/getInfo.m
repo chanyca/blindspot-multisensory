@@ -2,6 +2,8 @@
 function [Answer,Cancelled] = getInfo(varargin)
 
 eye = true; glasses = true; dummy = true; demo = true; task = true;
+isi = false; ver = false; gap = false; stim = false; stimdur = false; 
+beepInterval = false; npracTrials = false; orientation = false; rep = false;
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'eye'
@@ -14,6 +16,24 @@ while ~isempty(varargin)
             demo = varargin{2};
         case 'task'
             task = varargin{2};
+        case 'isi'
+            isi = varargin{2};
+        case 'ver'
+            ver = varargin{2};
+        case 'gap'
+            gap = varargin{2};
+        case 'stim'
+            stim = varargin{2};
+        case 'stimdur'
+            stimdur = varargin{2};
+        case 'beepinterval'
+            beepInterval = varargin{2};
+        case 'npractrials'
+            npracTrials = varargin{2};
+        case 'orientation'
+            orientation = varargin{2};
+        case 'rep'
+            rep = varargin{2};
     end
     varargin(1:2) = [];
 end
@@ -106,6 +126,90 @@ Formats(end,1).items = {'AV' 'TV' 'ATV'};
 DefAns.task = 'AV';
 end
 
+% ISI
+if isi
+Prompt(end+1,:) = {'ISI', 'isi', []};
+Formats(end+1,1).type = 'edit';
+Formats(end,1).format = 'integer';
+Formats(end,1).size = 50; % automatically assign the height
+DefAns.isi = 4;
+end
+
+% Version
+if ver
+Prompt(end+1,:) = {'Version', 'ver', []};
+Formats(end+1,1).type = 'edit';
+Formats(end,1).format = 'text';
+Formats(end,1).size = 50; % automatically assign the height
+DefAns.ver = 'v3.2';
+end 
+
+% Gap between double taps
+if gap
+Prompt(end+1,:) = {'Gap                          ','gap',[]};
+Formats(end+1,1).type = 'list';
+Formats(end,1).format = 'integer';
+Formats(end,1).style = 'radiobutton';
+Formats(end,1).items = [0 1];
+DefAns.gap = 1; % index, default no gap
+end
+
+% stimulus type
+if stim
+Prompt(end+1,:) = {'Stimulus','stim',[]};
+Formats(end+1,1).type = 'list'; 
+Formats(end,1).format = 'text';
+Formats(end,1).style = 'radiobutton';
+Formats(end,1).items = {'teardrop' 'bar' 'grating'};
+DefAns.stim = 'teardrop';
+end
+
+% flash duration
+if stimdur
+Prompt(end+1,:) = {'Flash duration (frames)','stimdur',[]};
+Formats(end+1,1).type = 'list';
+Formats(end,1).format = 'text';
+Formats(end,1).style = 'radiobutton';
+Formats(end,1).items = {'1' '2' '3'};
+DefAns.stimdur = '1'; %ms
+end
+
+% beep interval
+if beepInterval
+Prompt(end+1,:) = {'Beep interval (ms)','beepInterval',[]};
+Formats(end+1,1).type = 'list';
+Formats(end,1).format = 'text';
+Formats(end,1).style = 'radiobutton';
+Formats(end,1).items = {'58' '80'};
+DefAns.beepInterval = '58'; %ms
+end    
+
+% no of practice trials
+if npracTrials
+Prompt(end+1,:) = {'No. of practice trials', 'npracTrials',[]};
+Formats(end+1,1).type = 'edit';
+Formats(end,1).format = 'integer';
+Formats(end,1).size = 50; % automatically assign the height
+DefAns.npracTrials = 10;
+end
+
+% no of orientations
+if orientation
+Prompt(end+1,:) = {'No. of orientations', 'n_orientation',[]};
+Formats(end+1,1).type = 'edit';
+Formats(end,1).format = 'integer';
+Formats(end,1).size = 50; % automatically assign the height
+DefAns.n_orientation = 6;
+end
+
+% no of reps
+if rep
+Prompt(end+1,:) = {'No. of reps', 'n_rep',[]};
+Formats(end+1,1).type = 'edit';
+Formats(end,1).format = 'integer';
+Formats(end,1).size = 50; % automatically assign the height
+DefAns.n_rep = 100;
+end
 
 %% FINAL STEP
 [Answer,Cancelled] = inputsdlg(Prompt,Title,Formats,DefAns,Options);
