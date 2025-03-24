@@ -36,3 +36,6 @@ octave-workspace
 
 # Virtual environment
 .venv/
+
+# misc
+*.pyc
