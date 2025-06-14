@@ -31,8 +31,8 @@ codegen/
 octave-workspace
 
 # Figures
-*.png
-*.jpg
+# *.png
+# *.jpg
 
 # Virtual environment
 .venv/
