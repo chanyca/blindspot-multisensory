@@ -25,9 +25,14 @@ Shimojo.
 ```
     git clone https://github.com/chanyca/blindspot-multisensory.git
 ```
-2. Navigate to the project directory in MATLAB:
+2. Navigate to the project directory in terminal:
 ```
     cd('blindspot-multisensory')
+```
+3. Set up environment
+```
+    conda env create -f blindspot-multisensory.yml
+    conda activate blindspot-multisensory
 ```
 ---
 ### Key functions
@@ -45,50 +50,15 @@ cd('helper')
 allData = genAllData_rabbit;
 ```
 - Figure 1:
-  - `Data/plot.ipynb`
+  - `Data/figure_1.ipynb`
 - Figure 2:
-  - in MATLAB, run:
-  ```
-  cd('helper')
-  plt = plotGenerator_rabbit;
-  plt.grpAvg_combined
-  ```
+  - `Data/figure_2.ipynb`
 - Figure 3:
-  - in MATLAB, run:
-  ```
-  cd('helper')
-  plt = plotGenerator_rabbit;
-  plt.heatmap_but_image
-  ```
+  - `Data/figure_3.ipynb`
 - Figure 4:
-  - `Data/figures.ipynb` (run the cell under section 'Figure 4')
+  - `Data/figure_4.ipynb`
 - Figure 5:
-  - **A**:  
-    in MATLAB, run
-  ```
-  cd('helper')
-  plt = plotGenerator_rabbit;
-  plt.schematics_rabbit
-  ```
-  - **B, C**:  
-    in MATLAB, run  
-  ```
-  cd('helper')
-  draw_bs_flash;
-  ```
-  (Note: Psychtoolbox required, resulting image may look different depending on your display's resolution)
-  - **D**:  
-    in MATLAB, navigate to `'blindspot-multisensory/helper/get_flash_loc_num_key`. Uncomment lines 67-68. Code snippet here:  
-
-  ```
-  imgArray = Screen('GetImage', window);
-  imwrite(imgArray, 'flashResp.png','png');
-  ```
-  (Note: Psychtoolbox required, resulting image may look different depending on your display's resolution)  
-
-
-After running the above commands, `Run All` in `Data/figures.ipynb` to reproduce all 5 main figures.  
-
+  - `Data/figure_5.ipynb`
 ---
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
