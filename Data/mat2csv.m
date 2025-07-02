@@ -18,10 +18,12 @@
 %     - loc_4: hit for location 4
 %     - loc_5: hit for location 5
 
-matFiles = dir('SV*.mat');
+[dataDir,~,~] = fileparts(mfilename('fullpath'));
+
+matFiles = dir('mat/SV*.mat');
 
 for i = 1:length(matFiles)
-    fileName = matFiles(i).name; 
+    fileName = fullfile('mat', matFiles(i).name); 
     fprintf('Processing file: %s\n', fileName);    
     load(fileName, 'Data');
 
@@ -102,8 +104,9 @@ for i = 1:length(matFiles)
         'response', 'response_type', 'loc_1', 'loc_2', 'loc_3', 'loc_4', 'loc_5'});
     
     % Write to a CSV file
-    outputFileName = sprintf('csv/%s_%s.csv', subj_id, eye);
-    writetable(T, outputFileName);
+    outputFileName = sprintf('%s_%s.csv', subj_id, eye);
+    outputDir = fullfile(dataDir, 'csv');
+    writetable(T, fullfile(outputDir, outputFileName));
     
     fprintf('CSV file created: %s\n', outputFileName);
 end

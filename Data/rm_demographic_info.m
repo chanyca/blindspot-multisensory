@@ -1,5 +1,7 @@
 clear
 
+cd mat\
+
 matFiles = dir('SV*.mat');
 
 for i = 1:length(matFiles)
