@@ -67,7 +67,6 @@ for n=startTrial:size(Data.Conditions,1)
     
         loc = stimLoc{loc_list(n)};
         rects2Draw = prompt_loc{loc_list(n)};
-        pin = pinLoc{loc2pin{loc_list(n)}};
         num_beeps = beeps_list(n);
 
         dispStim;

@@ -9,18 +9,22 @@
 %% prep
 close all
 clear
+
 sca
 tic
 
 % add `helper` to path
 addpath(genpath('helper'))
+addpath(genpath('dependencies'))
 
 d = Directory;
+
 
 %% Important variables to CHECK
 lowvision = 0;
 showTrace  = true;
 bs_mapping = false;
+makeMovie = false;
 
 %% Ask for subject details
 [Answer,Cancelled] = getInfo;
@@ -88,6 +92,7 @@ else % Data does not exist
 end
 
 clear fileList
+
 
 %% find blind spot data
 fileList = dir( [d.BSdataDir, filesep, ...

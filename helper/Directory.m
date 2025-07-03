@@ -2,6 +2,7 @@ classdef Directory
     properties
         userID
         baseDir
+        ver
     end
     properties (Dependent)
         helperDir
@@ -15,6 +16,7 @@ classdef Directory
         function obj = Directory()
             obj.userID = extractBetween(pwd,['Users',filesep], filesep);
             obj.baseDir = pwd;
+            obj.ver = 'v3.5';
         end
 
         function helperDir = get.helperDir(obj)
@@ -26,7 +28,7 @@ classdef Directory
         end
 
         function dataDir = get.dataDir(obj)
-            dataDir = char(fullfile(obj.baseDir, 'Data'));
+            dataDir = char(fullfile(obj.baseDir, 'Data', 'mat'));
         end
 
         function edfDir = get.edfDir(obj)
