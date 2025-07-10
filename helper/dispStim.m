@@ -76,16 +76,10 @@ if contains(Answer.task, 'A')
     audiostarttime = PsychPortAudio('Start', env.audio_handle, param.repetitions, t0, param.waitForDeviceStart);
 end
 
-motor = 'D5'; % proxy pin
 for iframe = 1:stim.nFrames % 200 ms / 12 frames
     if iframe == stim.onFrames(1)
         drawStim("fixation", window, stim, env);
         drawStim("reference", window, stim, env);
-        if contains(Answer.task, 'T') && num_beeps > 0
-            % motor
-            motor = pin{1};
-            writeDigitalPin(a, motor, 1);
-        end
         % flash
         centeredRect = [loc{1}];
         Screen('FillRect', window, env.white, centeredRect);
@@ -96,13 +90,6 @@ for iframe = 1:stim.nFrames % 200 ms / 12 frames
         end
 
     elseif iframe == stim.onFrames(2)
-        if contains(Answer.task, 'T') && length(pin) == 3 && num_beeps > 0 %3 VIBRATIONS
-            drawStim("fixation", window, stim, env);
-            drawStim("reference", window, stim, env);
-            % motor
-            motor = pin{2};
-            writeDigitalPin(a, motor, 1);
-        end
         if length(loc) == 3 %3 FLASHES
             drawStim("fixation", window, stim, env);
             drawStim("reference", window, stim, env);
@@ -119,11 +106,6 @@ for iframe = 1:stim.nFrames % 200 ms / 12 frames
     elseif iframe == stim.onFrames(3)
         drawStim("fixation", window, stim, env);
         drawStim("reference", window, stim, env);
-        if contains(Answer.task, 'T') && num_beeps > 0
-            % motor
-            motor = pin{end};
-            writeDigitalPin(a, motor, 1);
-        end
         % flash
         centeredRect = [loc{end}];
         Screen('FillRect', window, env.white, centeredRect);
@@ -134,9 +116,6 @@ for iframe = 1:stim.nFrames % 200 ms / 12 frames
         end
 
     else
-        if contains(Answer.task, 'T')
-            writeDigitalPin(a, motor, 0);
-        end
         % fixation before flash
         drawStim("fixation", window, stim, env);
         drawStim("reference", window, stim, env);

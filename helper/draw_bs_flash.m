@@ -165,12 +165,12 @@ if strcmp(where, 'right')
     Screen('DrawLine', window, lineColor, xLeft, yTop, xLeft, yBottom+lineExtra, lineWidth) % left vertical
     Screen('DrawLine', window, lineColor, xRight, yTop, xRight, yBottom+lineExtra, lineWidth) % right vertical
     Screen('DrawLine', window, lineColor, xLeft, yBottom, xRight, yBottom, lineWidth) % horizontal
-    DrawFormattedText(window, ['0.5', char(176)], xLeft+deg.one, yBottom+deg.three, lineColor);
+    DrawFormattedText(window, ['0.5', char(176)], xLeft+deg.half-50, yBottom+deg.three, lineColor);
 elseif strcmp(where, 'left')
     Screen('DrawLine', window, lineColor, xLeft, yTop, xLeft, yBottom+lineExtra, lineWidth) % left vertical
     Screen('DrawLine', window, lineColor, xRight, yTop, xRight, yBottom+lineExtra, lineWidth) % right vertical
     Screen('DrawLine', window, lineColor, xLeft, yBottom, xRight, yBottom, lineWidth) % horizontal
-    DrawFormattedText(window, ['0.5', char(176)], xLeft-deg.four, yBottom+deg.three, lineColor);
+    DrawFormattedText(window, ['0.5', char(176)], xLeft-deg.half-50, yBottom+deg.three, lineColor);
 elseif strcmp(where, 'top')
     Screen('DrawLine', window, lineColor, xLeft, yTop, xRight+lineExtra, yTop, lineWidth) % top horizontal
     Screen('DrawLine', window, lineColor, xLeft, yBottom, xRight+lineExtra, yBottom, lineWidth) % bottom horizontal
