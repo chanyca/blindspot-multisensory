@@ -35,7 +35,7 @@ Screen('Flip', window);
 WaitSecs(1);
 KbWait;
 
-PsychPortAudio('FillBuffer', env.audio_handle, [param.left_singleBeep_array; param.right_singleBeep_array]);
+PsychPortAudio('FillBuffer', env.audio_handle, [param.one_beep_array; param.one_beep_array]);
 [~, StimulusOnsetTimePre, FlipTimestamp, ~, ~] = Screen('Flip', window);
 
 t0 = StimulusOnsetTimePre + env.ifi;
@@ -68,7 +68,7 @@ for iframe = 1:stim.fix_nFrames
     Screen('Flip', window);
 end
 
-PsychPortAudio('FillBuffer', env.audio_handle, [param.left_threeBeep_array; param.right_threeBeep_array]);
+PsychPortAudio('FillBuffer', env.audio_handle, [param.three_beep_array; param.three_beep_array]);
 
 drawStim("fixation", window, stim, env)
 [~, StimOnsetTimePre, FlipTimestamp, ~, ~] = Screen('Flip', window);
@@ -129,7 +129,7 @@ for iframe = 1:stim.fix_nFrames
     Screen('Flip', window);
 end
 
-PsychPortAudio('FillBuffer', env.audio_handle, [param.left_twoBeep_array; param.right_twoBeep_array]);
+PsychPortAudio('FillBuffer', env.audio_handle, [param.two_beep_array; param.two_beep_array]);
 
 drawStim("fixation", window, stim, env)
 [~, StimOnsetTimePre, FlipTimestamp, ~, ~] = Screen('Flip', window);

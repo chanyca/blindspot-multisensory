@@ -2,14 +2,11 @@
 % CHECK BEFORE YOU START
 % Bose speaker turned on to max
 % Computer volume at 50
-% Chin rest - distance at 57cm
-% param.audioDelay = -0.105 (set on 2022 Dell Computer 60Hz empirically) -
-% 6/26/2023
+
 
 %% prep
 close all
 clear
-
 sca
 tic
 
@@ -19,11 +16,9 @@ addpath(genpath('dependencies'))
 
 d = Directory;
 
-
 %% Important variables to CHECK
 lowvision = 0;
 showTrace  = true;
-bs_mapping = false;
 makeMovie = false;
 
 %% Ask for subject details
@@ -40,24 +35,23 @@ if strcmp(Answer.sid, 'debug')
     showDemo = false;
 end
 
+fileString = sprintf('%s_%s_%s_%s', Answer.sid, Answer.eye, Answer.glasses, Answer.task);
+fileName = fullfile(d.dataDir, [fileString, '.mat']);
 
 % returns if subject completed task
-fileList = dir( [d.dataDir, filesep, ...
-    sprintf('%s*%s_%s_%s.mat', Answer.sid, Answer.eye, Answer.glasses, Answer.task)]);
+fileList = dir(fileName);
 
 if ~isempty(fileList) % load file if not empty
     load(fullfile(d.dataDir, fileList.name));
     % check completion
-%     if Data.complete % Data exists and is complete
-% %         clc
-% %         disp("ERROR: Subject completed this already.")
-% %         sca
-% %         return
-%     else % Data exists but is incomplete
-        sub = [d.dataDir, filesep];
-        fileName = [sub, extractBefore(fileList.name, '.mat')];
-%         disp(fileName)
-    % end
+    if Data.complete % Data exists and is complete
+        clc
+        disp("ERROR: Subject completed this already.")
+        sca
+        return
+    else % Data exists but is incomplete
+        disp("Incomplete data, continue experiment.")
+    end
 else % Data does not exist
     % initialize data structure
     Data.SubjectID      = Answer.sid;
@@ -69,14 +63,8 @@ else % Data does not exist
     Data.ResponsesF     = [];
     Data.Flash_loc      = {}; % Note CELL property
     Data.RT_F           = {}; % Note CELL property
-    if contains(Answer.task, 'A')
-        Data.ResponsesB = [];
-        Data.RT_B       = [];
-    end
-    if contains(Answer.task, 'T')
-        Data.ResponsesT = [];
-        Data.RT_T       = [];
-    end
+    Data.ResponsesB = [];
+    Data.RT_B       = [];
 
     % generate trials
     [trials] = genTrials(Answer);
@@ -86,9 +74,6 @@ else % Data does not exist
     Data.ConditionsF_extra = [];
     Data.ResponsesF_extra  = [];
     Data.Flash_loc_extra   = {};
-    date = datetime('now', 'Format','dd-mm-yyyy HH_MM_SS');
-    sub = [d.dataDir, filesep];
-    fileName = sprintf('%s%s_%s_%s_%s_%s', sub, Answer.sid, date, Answer.eye, Answer.glasses, Answer.task);
 end
 
 clear fileList

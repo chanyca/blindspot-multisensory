@@ -39,8 +39,5 @@ classdef Directory
             plotDir = char(fullfile(obj.baseDir, 'plots'));
         end
 
-        function allDataMat = get.allDataMat(obj)
-            allDataMat = char(fullfile(obj.dataDir, 'allData.mat'));
-        end
     end
 end

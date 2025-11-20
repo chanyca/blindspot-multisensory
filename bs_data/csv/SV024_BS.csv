@@ -1,0 +1,3 @@
+subj_id,eye,left_x,left_y,right_x,right_y,top_x,top_y,bottom_x,bottom_y,center_x,center_y,source_file
+SV024,L,786.76,1148.97,1091.76,1148.97,939.26,955.84,939.26,1342.09,939.26,1148.97,SV024_na_BS.mat
+SV024,R,2733.24,1133.34,3116.57,1133.34,2924.91,917.51,2924.91,1349.17,2924.91,1133.34,SV024_na_BS.mat

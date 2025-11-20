@@ -19,11 +19,11 @@ showTrace = false;
 % prep beep here
 % Fill buffer
 if num_beeps == 0 %0B2F, no sound
-    PsychPortAudio('FillBuffer', env.audio_handle, [param.left_emptyBeep_array; param.right_emptyBeep_array]);
+    PsychPortAudio('FillBuffer', env.audio_handle, [param.zero_beep_array; param.zero_beep_array]);
 elseif num_beeps == 2 %2B2F
-    PsychPortAudio('FillBuffer', env.audio_handle, [param.left_twoBeep_array; param.right_twoBeep_array]);
+    PsychPortAudio('FillBuffer', env.audio_handle, [param.two_beep_array; param.two_beep_array]);
 elseif num_beeps == 3 %3B2F
-    PsychPortAudio('FillBuffer', env.audio_handle, [param.left_threeBeep_array; param.right_threeBeep_array]);
+    PsychPortAudio('FillBuffer', env.audio_handle, [param.three_beep_array; param.three_beep_array]);
 end
 
 %% fixation - won't start trial till successful fixation

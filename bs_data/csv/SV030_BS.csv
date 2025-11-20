@@ -1,0 +1,3 @@
+subj_id,eye,left_x,left_y,right_x,right_y,top_x,top_y,bottom_x,bottom_y,center_x,center_y,source_file
+SV030,L,767.38,1155.78,1193.97,1155.78,980.67,901.21,980.67,1410.34,980.67,1155.78,SV030_without_BS.mat
+SV030,R,2708.89,1114.85,3141.95,1114.85,2925.42,871.26,2925.42,1358.43,2925.42,1114.85,SV030_without_BS.mat
