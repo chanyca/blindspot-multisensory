@@ -1,7 +1,7 @@
 # blindspot-multisensory  
 
 [![DOI](https://zenodo.org/badge/888130091.svg)](https://doi.org/10.5281/zenodo.14167119)  
-Data and code accompaning the paper "Filling in of the Blindspot is Multisensory." by Ailene Chan, N. R. B. Stiles, C. A. Levitan, A. R. Tanguay, and S.
+Data and code accompaning the paper "Bayesian Causal Inference Accounts for Multisensory Filling-In at the Blind Spot" by Ailene Chan, N. R. B. Stiles, C. A. Levitan, A. R. Tanguay, D. Wu, and S.
 Shimojo.
 ---
 ### Getting Started
@@ -42,23 +42,16 @@ Shimojo.
 ### Data analysis + plotting
 
 To reproduce each figure:  
-  
-**IMPORTANT: Run `helper/genAllData_rabbit` to generate compiled data files for plotting.**  
-In MATLAB, run:
-```
-cd('helper')
-allData = genAllData_rabbit;
-```
 - Figure 1:
   - `Data/figure_1.ipynb`
 - Figure 2:
   - `Data/figure_2.ipynb`
 - Figure 3:
   - `Data/figure_3.ipynb`
-- Figure 4:
-  - `Data/figure_4.ipynb`
-- Figure 5:
-  - `Data/figure_5.ipynb`
+- Figure S1:
+  - `Data/figure_s1.ipynb`
+- Figure S2, S3:
+  - `Data/figure_s2_s3.ipynb`
 ---
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
