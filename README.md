@@ -1,7 +1,7 @@
 # blindspot-multisensory  
 
 [![DOI](https://zenodo.org/badge/888130091.svg)](https://doi.org/10.5281/zenodo.14167119)  
-Data and code accompaning the paper "Bayesian Causal Inference Accounts for Multisensory Filling-In at the Blind Spot" by Ailene Chan, N. R. B. Stiles, C. A. Levitan, A. R. Tanguay, D. Wu, and S.
+Data and code accompanying the paper "Bayesian Causal Inference Accounts for Multisensory Filling-In at the Blind Spot" by Ailene Chan, N. R. B. Stiles, C. A. Levitan, A. R. Tanguay, D. Wu, and S.
 Shimojo.
 ---
 ### Getting Started
